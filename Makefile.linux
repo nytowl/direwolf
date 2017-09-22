@@ -265,7 +265,7 @@ LDFLAGS += -lasound
 # Finding libgps.so* is more difficult because it
 # is in different places on different operating systems.
 
-enable_gpsd := $(wildcard /usr/include/gps.h)
+enable_gpsd ?= $(wildcard /usr/include/gps.h)
 ifneq ($(enable_gpsd),)
 CFLAGS += -DENABLE_GPSD
 LDFLAGS += -lgps
