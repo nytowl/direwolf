@@ -11,7 +11,8 @@ all :  $(APPS) direwolf.desktop direwolf.conf
 	@echo "        sudo make install"
 	@echo " "
 
-CC := gcc
+CC ?= gcc
+HOSTCC ?= gcc
 
 # Just for fun, let's see how clang compares to gcc.  First install like this:
 #	sudo apt-get update
@@ -319,7 +320,7 @@ fsk_fast_filter.h : gen_fff
 
 gen_fff : demod_afsk.c dsp.c textcolor.c
 	echo " " > tune.h
-	$(CC) $(CFLAGS) -DGEN_FFF -o $@ $^ $(LDFLAGS)
+	$(HOSTCC) $(CFLAGS) -DGEN_FFF -o $@ $^ $(LDFLAGS)
 
 
 #
