@@ -320,7 +320,7 @@ fsk_fast_filter.h : gen_fff
 
 gen_fff : demod_afsk.c dsp.c textcolor.c
 	echo " " > tune.h
-	$(HOSTCC) $(CFLAGS) -DGEN_FFF -o $@ $^ $(LDFLAGS)
+	$(HOSTCC) $(HOSTCFLAGS) -DGEN_FFF -o $@ $^ $(HOSTLDFLAGS)
 
 
 #
